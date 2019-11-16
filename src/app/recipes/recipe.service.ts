@@ -9,7 +9,7 @@ export class RecipeService{
 
   recipeschanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
+  /*private recipes: Recipe[] = [
     new Recipe('Butter Chicken',
       'Exquisite Dish',
       'https://www.seriouseats.com/2019/07/20190619-korean-bbq-vicky-wasik-29.jpg',
@@ -20,9 +20,15 @@ export class RecipeService{
       'https://www.seriouseats.com/2019/07/20190619-korean-bbq-vicky-wasik-29.jpg',
       [new Ingredient('Rice', 1), new Ingredient('oil', 1)]
     )
-  ];
+  ];*/
+
+   private recipes: Recipe[] =[];
   constructor(private slservice: ShoppinglistService) {
 
+  }
+  setRecipes(recipes : Recipe[]){
+  this.recipes=recipes;
+   this.recipeschanged.next(this.recipes.slice());
   }
   getRecipes() {
     return this.recipes.slice();
