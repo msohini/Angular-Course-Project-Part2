@@ -4,9 +4,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\auth",
-    "\\src\\app\\header",
-    "\\src\\app\\Shared"
+    "\\src\\app\\Shared",
+    "\\src\\app\\Shared\\loading-spinner"
   ],
-  "SelectedNode": "\\src\\app\\header\\header.component.html",
+  "SelectedNode": "\\src\\app\\auth\\auth.component.html",
   "PreviewInSolutionExplorer": false
 }
