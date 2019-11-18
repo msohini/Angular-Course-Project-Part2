@@ -4,8 +4,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\auth",
+    "\\src\\app\\header",
     "\\src\\app\\Shared"
   ],
-  "SelectedNode": "\\src\\app\\Shared",
+  "SelectedNode": "\\src\\app\\header\\header.component.html",
   "PreviewInSolutionExplorer": false
 }
