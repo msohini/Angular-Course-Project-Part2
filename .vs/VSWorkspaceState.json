@@ -1,12 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\auth",
-    "\\src\\app\\Shared",
-    "\\src\\app\\Shared\\loading-spinner"
+    ""
   ],
-  "SelectedNode": "\\src\\app\\auth\\auth.component.html",
   "PreviewInSolutionExplorer": false
 }
