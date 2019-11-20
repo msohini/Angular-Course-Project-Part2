@@ -6,7 +6,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Recipe } from '../recipes/recipe.model';
 import { RecipeService } from '../recipes/recipe.service';
 import { map, tap, catchError } from 'rxjs/operators';
-import { throwError, Subject } from 'rxjs';
+import { throwError, Subject, BehaviorSubject } from 'rxjs';
 import { User } from './user.model';
 
 export interface AuthResponseData {
@@ -22,7 +22,8 @@ export interface AuthResponseData {
 @Injectable({ providedIn: 'root' })
 
 export class AuthService {
-	user = new Subject<User>();
+	//user = new Subject<User>();
+	user = new BehaviorSubject<User>(null);
 	constructor(private http: HttpClient) { }
 	signup(email : string, password: string) {
 
@@ -76,7 +77,7 @@ export class AuthService {
 	}
 
 	private handleAuthentication(email: string, id: string, token: string, expiresIn: number) {
-		const expirationDate = new Date(new Date().getTime() + +expiresIn);
+		const expirationDate = new Date(new Date().getTime() + +expiresIn*1000);
 		const user = new User(email, id, token, expirationDate);
 		this.user.next(user);
 	}
