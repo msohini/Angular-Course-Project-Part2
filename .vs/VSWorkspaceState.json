@@ -7,6 +7,6 @@
     "\\src\\app\\header",
     "\\src\\app\\Shared"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\app\\auth\\auth.service.ts",
   "PreviewInSolutionExplorer": false
 }
