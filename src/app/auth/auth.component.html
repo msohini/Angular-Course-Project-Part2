@@ -1,10 +1,12 @@
+
+<ng-template appPlaceholder></ng-template>
+
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <!--<div class="alert alert-danger" *ngIf="error">
       <p>{{error}}</p>
     </div>-->
-    <app-alert [message]="error"  *ngIf="error"></app-alert>
-
+    <!--<app-alert [message]="error"  *ngIf="error" (close)="handlerError()"></app-alert>-->
     <div *ngIf="isLoading" style="text-align:center">
       <app-loading-spinner></app-loading-spinner>
     </div>
@@ -16,7 +18,7 @@
                ngModel
                name="email"
                required
-               email/>
+               email />
       </div>
       <div class="form-group">
         <label for="Password">Password</label>
@@ -25,14 +27,14 @@
                ngModel
                name="password"
                required
-               minlength="6"/>
+               minlength="6" />
       </div>
       <div>
         <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">{{isLoginMode?'Login': 'Sign Up'}}</button> |
         <button class="btn btn-primary" (click)="SwitchMode()" type="button">Switch to {{isLoginMode?'Sign Up':'Login'}}</button>
 
       </div>
-      
+
     </form>
   </div>
 

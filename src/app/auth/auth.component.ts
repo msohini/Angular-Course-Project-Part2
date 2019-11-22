@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService, AuthResponseData } from './auth.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { AlertComponent } from '../Shared/alert/alert.component';
+import { PlaceholderDirective } from '../Shared/placeholder/placeholder.directive';
 
 
 @Component({
@@ -15,11 +17,29 @@ export class AuthComponent {
 	isLoginMode = true;
 	isLoading = false;
 	error: string = null;
-	constructor(private authservice: AuthService, private router : Router) {
+	@ViewChild(PlaceholderDirective, { static: false }) alertHost: PlaceholderDirective;
+	private closeSub: Subscription;
+	constructor(private authservice: AuthService, private router : Router,private componentFactoryResolver : ComponentFactoryResolver) {
 	}
 
 	SwitchMode() {
 		this.isLoginMode = !this.isLoginMode;
+	}
+	handlerError() {
+		this.error = null;
+	}
+	private showErrorAlert(message: string) {
+		debugger;
+		const alertCompFactory= this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+		const hostViewContainerRef = this.alertHost.viewContainerRef;
+		hostViewContainerRef.clear();
+		const alertCompRef = hostViewContainerRef.createComponent(alertCompFactory);
+		alertCompRef.instance.message = message;
+		this.closeSub = alertCompRef.instance.close.subscribe(() => {
+			this.closeSub.unsubscribe();
+			hostViewContainerRef.clear();
+
+		});
 	}
 
 	onSubmit(form: NgForm) {
@@ -44,6 +64,7 @@ export class AuthComponent {
 			errorMessage => {
 				console.log(errorMessage);
 				this.error = errorMessage;
+				this.showErrorAlert(errorMessage);
 				this.isLoading = false;
 			});
 
