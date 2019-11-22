@@ -5,8 +5,9 @@
     "\\src\\app",
     "\\src\\app\\auth",
     "\\src\\app\\header",
-    "\\src\\app\\Shared"
+    "\\src\\app\\Shared",
+    "\\src\\app\\Shared\\alert"
   ],
-  "SelectedNode": "\\src\\app\\app.component.ts",
+  "SelectedNode": "\\src\\app\\auth\\auth.component.ts",
   "PreviewInSolutionExplorer": false
 }
