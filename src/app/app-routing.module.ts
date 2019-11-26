@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { AuthComponent } from './auth/auth.component';
 
 
 const approutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
- 
-	{ path: 'auth', component: AuthComponent }
+ // Added  for Lazy loading
 
+	{ path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' },
+
+	{ path: 'shopping-list', loadChildren: './shopping-list/shopping-list.module#ShoppingListModule' },
+
+	{ path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(approutes)],
+		RouterModule.forRoot(approutes, {preloadingStrategy:PreloadAllModules})],
   exports: [RouterModule]
 })
 export class appRoutingModule {

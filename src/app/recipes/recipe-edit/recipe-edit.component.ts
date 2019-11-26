@@ -13,7 +13,12 @@ import { Recipe } from '../recipe.model';
 export class RecipeEditComponent implements OnInit {
   id: number;
   recipeform: FormGroup;
-  editMode = false;
+	editMode = false;
+
+	get IngredientsControl() {
+
+		return (this.recipeform.get('ingredients') as FormArray).controls;
+	}
   constructor(private route: ActivatedRoute, private recipeservice: RecipeService, private router: Router) { }
 
   ngOnInit() {

@@ -4,10 +4,11 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\auth",
-    "\\src\\app\\header",
-    "\\src\\app\\Shared",
-    "\\src\\app\\Shared\\alert"
+    "\\src\\app\\recipes",
+    "\\src\\app\\Shared\\alert",
+    "\\src\\app\\shopping-list",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\auth\\auth.component.ts",
+  "SelectedNode": "\\src",
   "PreviewInSolutionExplorer": false
 }
