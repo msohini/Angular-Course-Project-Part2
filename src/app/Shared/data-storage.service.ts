@@ -11,7 +11,9 @@ export class DataStorageService {
 	constructor(private http: HttpClient, private recipeService: RecipeService, private authService: AuthService) { }
 storeRecipes(){
 const recipes=  this.recipeService.getRecipes();
-this.http.put('https://ng-course-recipe-book-6dd3a.firebaseio.com/recipes.json',recipes)
+//this.http.put('https://ng-course-recipe-book-6dd3a.firebaseio.com/recipes.json',recipes)
+
+	this.http.put('https://ng-course-recipe-book-7000e.firebaseio.com/recipes.json', recipes)
 .subscribe(response=>{
 console.log(response);
 });
@@ -57,7 +59,9 @@ this.recipeService.setRecipes(recipes);
 
 	fetchRecipes() {
 
-		return this.http.get<Recipe[]>('https://ng-course-recipe-book-6dd3a.firebaseio.com/recipes.json')
+		//return this.http.get<Recipe[]>('https://ng-course-recipe-book-6dd3a.firebaseio.com/recipes.json')
+
+		return this.http.get<Recipe[]>('https://ng-course-recipe-book-7000e.firebaseio.com/recipes.json')
 			.pipe(	
 			map(recipes => {
 				return recipes.map(recipe => {
